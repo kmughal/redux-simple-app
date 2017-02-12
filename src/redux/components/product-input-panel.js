@@ -27,7 +27,6 @@ const ProductInputPanel = (props) => {
                 ref={input => productDesc = input}
             ></textarea>
         </div>
-
         <div className="form-group">
             <button className="btn btn-primary" onClick={addName}>Add</button>
         </div>

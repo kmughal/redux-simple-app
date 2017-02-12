@@ -7,17 +7,19 @@ import ProductInputPanel from "../components/product-input-panel"
 import * as actions from "../actions/index"
 
 const App = (props) => {
-    let {actions , products} = props;
+    let {actions, products, orderBy,orderDir,orderColumnName} = props;
     return <div>
         <ProductInputPanel addNewProduct={actions.addItem} />
-        <ProductList products={products} deleteItem={actions.deleteItem} />
+        <ProductList products={products} deleteItem={actions.deleteItem}
+            orderBy={actions.orderBy} orderColumnName = {orderColumnName} orderDir = {orderDir} />
     </div>
 }
 
 const mapStateToProps = (state, ownProps) => {
+    let { products, orderColumnName, orderDir} = state.product;
     return {
-        products: state.product
-    }
+        products, orderColumnName, orderDir
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
